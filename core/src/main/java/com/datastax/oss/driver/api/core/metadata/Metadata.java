@@ -146,6 +146,7 @@ public interface Metadata {
    * cannot know if a certain node is up or down. Such nodes show up in the returned diagnostic in
    * "unknown" state.
    */
+  @NonNull
   default TopologyDiagnostic generateTopologyDiagnostic() {
     return new TopologyDiagnosticGenerator(this).generate();
   }
@@ -192,6 +193,7 @@ public interface Metadata {
    * @throws IllegalArgumentException if the pre-requisites for generation are not met.
    * @throws IllegalStateException if the diagnostic is too unreliable to be generated.
    */
+  @NonNull
   default TokenRingDiagnostic generateTokenRingDiagnostic(
       @NonNull CqlIdentifier keyspaceName,
       @NonNull ConsistencyLevel consistencyLevel,
